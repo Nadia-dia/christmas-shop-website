@@ -24,7 +24,7 @@
     --second-font: 'Allura', sans-serif;
     --primary: #ff4646;
     --dark: #181c29;
-    --static: #fff;
+    --static-white: #fff;
     --content-background: #ecf3f8;
     --tag-purple: #4361ff;
     --tag-pink: #ff43f7;
@@ -35,9 +35,59 @@
     --overlay:rgba(24, 28, 41, 0.8); 
 }
 
-.test{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    font-weight: 500;
-    font-style: italic;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+.layout-container{
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header{
+    max-width: 79.75em;
+    margin: 0 auto;
+    display: flex;
+    padding: 0.75em 0;
+    justify-content: space-between;
+    background-color: var(--static-white);
+}
+
+.logo-container{
+    padding: 0.5em 1.25em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.logo-title, 
+.menu-item{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.75em;
+    line-height: 130%;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.0483em;
+    text-transform: uppercase;
+    color:var(--dark);
+}
+
+.nav-menu{
+    max-width: 23.4375em;
+    width: 100%;
+}
+
+.menu-list{
+    height: 100%;
+    list-style-type:none;
+    display: flex;
+    justify-content:space-between;
+}
+
+.menu-item{
+    padding: 1em 1.6667em;
+}
+
