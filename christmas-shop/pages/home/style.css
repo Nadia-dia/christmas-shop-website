@@ -92,7 +92,7 @@
     padding: 1em 1.6667em;
 }
 
-.Hero>.content-container{
+.Hero>.background-container>.content-container{
     max-width: 26.625em;
     margin: 0 auto;
     padding: 7.5em 0;
@@ -146,13 +146,15 @@
 .main{
     background-color: var(--primary);
     border-radius: 1.5em;
-    background-image: url('../../assets/images/bg-snow.png');
-    background-size: cover;
-    background-repeat: repeat-y;
-    background-position: center;
 }
 
 .Hero{
+    background-image: url('../../assets/images/bg-snow.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.background-container {
     background-image: url(../../assets/images/bg-ball.png);
     background-size: cover;
     background-position: center;
