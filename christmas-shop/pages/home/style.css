@@ -113,14 +113,17 @@
     color:var(--static-white);
 }
 
-.header1{
+.h{
     font-style: normal;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.h1{
     font-size: 2em;
     line-height: 150%;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.175em;
-    text-transform: uppercase;
     text-align: center;
     color: var(--static-white);
 }
@@ -148,7 +151,8 @@
     border-radius: 1.5em;
 }
 
-.Hero{
+.Hero,
+.About{
     background-image: url('../../assets/images/bg-snow.png');
     background-size: cover;
     background-position: center;
@@ -159,3 +163,51 @@
     background-size: cover;
     background-position: center;
 }
+
+/* About section start */
+.About>.content-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--static-white);
+    border-radius: 1.5em;
+}
+
+.About{
+    padding: 3.75em 5.125em;
+}
+
+.text-container{
+    max-width: 26.625em;
+    margin-left: 3.75em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em
+}
+
+.text-container>.caption{
+    color:var(--primary);
+}
+
+.h2{
+    font-size: 1.5em;
+    line-height: 152%;
+    letter-spacing: 0.16em;
+    color: var(--dark);
+}
+
+.paragraph{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 148%;
+    font-family: 'Montserrat', sans-serif;
+    color:var(--dark);
+}
+
+.image{
+    display: block;
+    border-radius: 1.5em;
+}
+
+/* About section end */
