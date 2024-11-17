@@ -64,7 +64,8 @@
 }
 
 .logo-title, 
-.menu-item{
+.menu-item,
+.button {
     font-style: normal;
     font-weight: 600;
     font-size: 0.75em;
@@ -91,3 +92,68 @@
     padding: 1em 1.6667em;
 }
 
+.Hero>.content-container{
+    max-width: 26.625em;
+    margin: 0 auto;
+    padding: 7.5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.75em;
+}
+
+.caption{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 100%;
+    letter-spacing: 0.05em;
+    font-family: 'Allura', sans-serif;
+    text-transform:capitalize;
+    color:var(--static-white);
+}
+
+.header1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2em;
+    line-height: 150%;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--static-white);
+}
+
+.button{
+    line-height: 134%;
+    text-decoration: none;
+    color: var(--static-white);
+    padding: 1.667em 2.667em;
+    border-radius: 1.5em;
+    border-width: 0;
+    background-color: var(--dark);
+    transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
+}
+
+.button:hover{
+    color: var(--dark);
+    background-color: var(--static-white);
+    cursor:pointer;
+}
+
+/* Background color&images*/
+.main{
+    background-color: var(--primary);
+    border-radius: 1.5em;
+    background-image: url('../../assets/images/bg-snow.png');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+.Hero{
+    background-image: url(../../assets/images/bg-ball.png);
+    background-size: cover;
+    background-position: center;
+}
