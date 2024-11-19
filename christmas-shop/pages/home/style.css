@@ -225,8 +225,8 @@
 /* Slider section end */
 
 .Slider{
-    max-width: 79.75em;
-    margin: 3.75em auto;
+    margin: 0 auto;
+    padding: 3.75em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,6 +259,7 @@
 .arrows-container{
     max-height: 3.5em;
     align-self: flex-end;
+    margin-right: 5.125em;
 }
 
 .arrows-container .arrow:first-child{
@@ -334,7 +335,7 @@
 }
 
 .card-text{
-    min-height: 7em;
+    flex-grow: 1;
     background-color: var(--static-white);
     border-radius: 1.25em;
     padding: 1.25em;
@@ -359,7 +360,8 @@
 }
 
 .BestGifts{
-    margin: 7.5em auto;
+    margin: auto;
+    padding: 3.75em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
