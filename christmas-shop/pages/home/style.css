@@ -113,7 +113,8 @@
     color:var(--static-white);
 }
 
-.h{
+.h,
+.slider-text{
     font-style: normal;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
@@ -149,10 +150,12 @@
 .main{
     background-color: var(--primary);
     border-radius: 1.5em;
+    overflow-x: hidden;
 }
 
 .Hero,
-.About{
+.About,
+.Slider{
     background-image: url('../../assets/images/bg-snow.png');
     background-size: cover;
     background-position: center;
@@ -185,7 +188,7 @@
     row-gap: 1.5em
 }
 
-.text-container>.caption{
+.About .caption{
     color:var(--primary);
 }
 
@@ -193,6 +196,10 @@
     font-size: 1.5em;
     line-height: 152%;
     letter-spacing: 0.16em;
+    color: var(--static-white);
+}
+
+.About .h2{
     color: var(--dark);
 }
 
@@ -211,3 +218,84 @@
 }
 
 /* About section end */
+
+/* Slider section end */
+
+.Slider{
+    max-width: 79.75em;
+    margin: 3.75em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.25em;
+}
+
+.Slider>.text-container{
+    margin: 0;
+    row-gap: 0.75em;
+    align-items: center;
+}
+
+.slider-text{
+    font-size: 5em;
+    color:var(--static-white);
+}
+
+.slider-image{
+    width: 12.5em;
+}
+
+.slider-box{
+    max-width: 79.75em;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    column-gap: 1.25em;
+}
+.arrows-container{
+    align-self: flex-end;
+}
+
+.arrows-container .arrow:first-child{
+    margin-right: 1.25em;
+}
+
+.arrow{
+    border: none;
+    max-height: 4.2em;
+    background-color: transparent;
+}
+
+.arrow svg{
+    transition: fill 0.5s, cursor 0.3s;
+}
+
+.arrow.active:hover svg{
+    cursor:pointer;
+    fill: var(--static-white);
+}
+
+.arrow path,
+.arrow:hover rect{
+    transition: stroke 0.5s ease-in-out;
+}
+
+.arrow.active:hover path{
+    stroke:var(--primary)
+    
+}
+
+.arrow.active:hover rect{
+    stroke:var(--static-white);
+}
+
+.arrow.disabled rect
+{
+    stroke-opacity: 0.4;
+}
+
+
+
+
+
+/* Slider section end */
