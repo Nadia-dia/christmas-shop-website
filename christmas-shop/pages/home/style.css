@@ -91,25 +91,19 @@ html{
     list-style-type:none;
     display: flex;
     justify-content:space-between;
-}
-
-.menu-item{
-    border-radius: 0.75em;
-    padding: 1em 1.6667em;
-    transition: background-color 0.3s ease-in;
+    align-items: center;
 }
 
 .menu-item>.link{
-    transition: color 0.5s ease-in-out;
+    padding: 1em 1.6667em;
+    border-radius: 0.75em;
+    transition: background-color 0.3s ease-in, color 0.5s ease-in-out;
 }
 
-.menu-item:hover{
+.menu-item .link:hover{
+    color:var(--primary);
     background-color: var(--primary-10);
     cursor: pointer;
-}
-
-.menu-item:hover .link{
-    color:var(--primary);
 }
 
 .Hero>.background-container>.content-container{
@@ -481,6 +475,7 @@ html{
 }
 
 .menu-item>.link,
+.contacts .h2,
 .contacts .link,
 .footer .caption>.link{
     color: var(--dark);
@@ -495,8 +490,12 @@ html{
     gap: 0.75em
 }
 
+.contacts>.link{
+    width: 33%;
+}
+
 .contact-card{
-    width: 30%;
+    width: 100%;
     padding: 1.25em 0;
     display: inline-flex;
     flex-direction: column;

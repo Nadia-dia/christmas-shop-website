@@ -92,46 +92,40 @@ html{
     list-style-type:none;
     display: flex;
     justify-content:space-between;
+    align-items: center;
 }
 
 .tabs-list{
     max-width: 29.625em;
     width: 100%;
-}
-
-.menu-item,
-.tab-item{
-    border-radius: 0.75em;
-    padding: 1em 1.6667em;
-    transition: background-color 0.3s ease-in;
-}
-
-.menu-item>.link{
-    transition: color 0.5s ease-in-out;
+    height: 2.5em;
 }
 
 .tab-item>.link{
-    color:var(--static-white);
+    color: var(--static-white);
 }
 
-.menu-item:nth-child(2):hover,
-.menu-item:nth-child(3):hover,
-.menu-item:last-child:hover,
-.menu-item:first-child{
-    background-color: var(--primary-10);
+.menu-item>.link,
+.tab-item>.link {
+    padding: 1em 1.6667em;
+    transition: background-color 0.3s ease-in, color 0.5s ease-in-out;
+    border-radius: 0.75em;
 }
 
-.menu-item:nth-child(2):hover>.link,
-.menu-item:nth-child(3):hover>.link,
-.menu-item:last-child:hover>.link{
+.menu-item:nth-child(2) .link:hover,
+.menu-item:nth-child(3) .link:hover,
+.menu-item:last-child .link:hover{
     color:var(--primary);
+    background-color: var(--primary-10);
+    cursor: pointer;
 }
 
-.tab-item:nth-child(2):hover,
-.tab-item:nth-child(3):hover,
-.tab-item:last-child:hover,
-.tab-item:first-child{
+.tab-item:nth-child(2):hover>.link,
+.tab-item:nth-child(3):hover>.link,
+.tab-item:last-child:hover>.link{
+    color:var(--static-white);
     background-color: var(--static-white-20);
+    cursor: pointer;
 }
 
 .menu-item:nth-child(2):hover,
@@ -147,11 +141,15 @@ html{
 }
 
 .menu-item:first-child>.link{
+    background-color: var(--primary-10);
+    border-radius: 0.75em;
     cursor:default;
     color:var(--primary);
 }
 
 .tab-item:first-child>.link{
+    background-color: var(--static-white-20);
+    border-radius: 0.75em;
     cursor:default;
 }
 /* Background color&images*/
@@ -303,6 +301,7 @@ html{
 }
 
 .menu-item>.link,
+.contacts .h2,
 .contacts .link,
 .footer .caption>.link{
     color: var(--dark);
@@ -317,8 +316,12 @@ html{
     gap: 0.75em
 }
 
+.contacts>.link{
+    width: 33%;
+}
+
 .contact-card{
-    width: 30%;
+    width: 100%;
     padding: 1.25em 0;
     display: inline-flex;
     flex-direction: column;
