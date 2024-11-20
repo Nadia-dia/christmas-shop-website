@@ -19,6 +19,10 @@
     src: local('Allura'), url(../../assets/fonts/Allura/Allura-Regular.ttf) format('truetype');
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root{
     --first-font: 'Montserrat', sans-serif;
     --second-font: 'Allura', sans-serif;
@@ -90,9 +94,16 @@
 }
 
 .menu-item{
+    border-radius: 0.75em;
     padding: 1em 1.6667em;
+    transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
 }
 
+.menu-item:hover{
+    background-color: var(--primary-10);
+    color:var(--primary);
+    cursor: pointer;
+}
 .Hero>.background-container>.content-container{
     max-width: 26.625em;
     margin: 0 auto;
@@ -158,13 +169,14 @@
 .Hero,
 .About,
 .Slider,
-.BestGifts{
+.BestGifts,
+.CTA{
     background-image: url('../../assets/images/bg-snow.png');
     background-size: cover;
     background-position: center;
 }
 
-.background-container {
+.Hero>.background-container {
     background-image: url(../../assets/images/bg-ball.png);
     background-size: cover;
     background-position: center;
@@ -225,8 +237,8 @@
 /* Slider section end */
 
 .Slider{
-    max-width: 79.75em;
-    margin: 3.75em auto;
+    margin: 0 auto;
+    padding: 3.75em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,6 +271,7 @@
 .arrows-container{
     max-height: 3.5em;
     align-self: flex-end;
+    margin-right: 5.125em;
 }
 
 .arrows-container .arrow:first-child{
@@ -334,7 +347,7 @@
 }
 
 .card-text{
-    min-height: 7em;
+    flex-grow: 1;
     background-color: var(--static-white);
     border-radius: 1.25em;
     padding: 1.25em;
@@ -359,7 +372,8 @@
 }
 
 .BestGifts{
-    margin: 7.5em auto;
+    margin: 0 auto;
+    padding: 3.75em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -367,3 +381,170 @@
 }
 
 /* BestGifts section end */
+/********************************************************/
+
+/* CTA section start */
+
+.CTA>.background-container {
+    background-image: url(../../assets/images/bg-forest.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.CTA .content-container{
+    margin: 0 auto;
+    padding: 11.25em 0;
+    max-width: 26.625em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.25em;;
+}
+
+.CTA .h2{
+    font-size: 1.5em;
+    line-height: 150%;
+    letter-spacing: 0.16em;
+    text-align: center;
+}
+
+.timer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.timer-container .h4{
+    font-size: 0.75em;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color:var(--static-white);
+}
+
+
+.timer-container{
+    background-color: var(--static-white-40);
+    border-radius: 1.25em;
+    width: 21.5em;
+    height: 4.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container>.block{
+    width: 5em;
+    position: relative;
+}
+
+.day>.h2::after, 
+.hour>.h2::after,
+.minute>.h2::after{
+    display: block;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 1.25rem;
+    height: 1.25rem;
+    width: 0.0625rem;
+    background-color: var(--static-white-40);
+}
+
+/* CTA section end */
+
+/* Footer section end */
+.footer{
+    padding: 3.75em 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75em;
+}
+
+.footer-image{
+    width: 5em;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.contacts .link,
+.footer .caption{
+    color: var(--dark);
+}
+
+.contacts{
+    width: 100%;
+    max-width: 79.75em;
+    display: flex;
+    justify-content: stretch;
+    flex-grow: 1;
+    gap: 0.75em
+}
+
+.contact-card{
+    width: 30%;
+    padding: 1.25em 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.75em;
+    background-color: var(--content-background);
+    border-radius: 1.25em;
+    flex-grow: 1;
+}
+
+.contact-card .h,
+.contact-card:hover .link,
+.school-link{
+    transition: color 0.3s ease-in;
+}
+
+.contact-card:hover .h,
+.contact-card:hover .link,
+.info-container>.caption:hover .school-link{
+    color:var(--primary);
+}
+
+.contact-card:hover{
+    cursor: pointer;
+}
+
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 0.75em;
+}
+
+.social-container{
+    max-width: 2.5em;
+    max-height: 2.5em;
+}
+
+.social-container>a>svg{
+    margin: 0.5em;
+}
+
+.social-container path{
+    transition: stroke 0.5s ease-out;
+}
+
+.social-container:hover svg>path{
+    stroke:var(--primary);
+}
+
+.social-container:hover{
+    cursor: pointer;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+/* Footer section end */
