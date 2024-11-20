@@ -96,14 +96,22 @@ html{
 .menu-item{
     border-radius: 0.75em;
     padding: 1em 1.6667em;
-    transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
+    transition: background-color 0.3s ease-in;
+}
+
+.menu-item>.link{
+    transition: color 0.5s ease-in-out;
 }
 
 .menu-item:hover{
     background-color: var(--primary-10);
-    color:var(--primary);
     cursor: pointer;
 }
+
+.menu-item:hover .link{
+    color:var(--primary);
+}
+
 .Hero>.background-container>.content-container{
     max-width: 26.625em;
     margin: 0 auto;
@@ -268,6 +276,7 @@ html{
     flex-wrap: nowrap;
     column-gap: 1.25em;
 }
+
 .arrows-container{
     max-height: 3.5em;
     align-self: flex-end;
@@ -307,8 +316,7 @@ html{
     stroke:var(--static-white);
 }
 
-.arrow.disabled rect
-{
+.arrow.disabled rect{
     stroke-opacity: 0.4;
 }
 /* Slider section end */
@@ -472,8 +480,9 @@ html{
     text-decoration: none;
 }
 
+.menu-item>.link,
 .contacts .link,
-.footer .caption{
+.footer .caption>.link{
     color: var(--dark);
 }
 
