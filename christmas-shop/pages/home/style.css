@@ -19,6 +19,10 @@
     src: local('Allura'), url(../../assets/fonts/Allura/Allura-Regular.ttf) format('truetype');
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root{
     --first-font: 'Montserrat', sans-serif;
     --second-font: 'Allura', sans-serif;
@@ -90,9 +94,16 @@
 }
 
 .menu-item{
+    border-radius: 0.75em;
     padding: 1em 1.6667em;
+    transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
 }
 
+.menu-item:hover{
+    background-color: var(--primary-10);
+    color:var(--primary);
+    cursor: pointer;
+}
 .Hero>.background-container>.content-container{
     max-width: 26.625em;
     margin: 0 auto;
@@ -510,10 +521,11 @@
 }
 
 .social-container{
+    max-width: 2.5em;
     max-height: 2.5em;
 }
 
-.social-container>svg{
+.social-container>a>svg{
     margin: 0.5em;
 }
 
