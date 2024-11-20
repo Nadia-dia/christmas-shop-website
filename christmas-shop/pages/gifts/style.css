@@ -173,6 +173,7 @@ html{
     display: flex;
     flex-direction: column;
     align-items: center;;
+    gap: 1.25em;
 }
 
 
@@ -215,6 +216,65 @@ html{
     display: block;
     border-radius: 1.5em;
 }
+
+.card-caption.work{
+    color: var(--tag-purple);
+}
+
+.card-caption.harmony{
+    color: var(--tag-pink);
+}
+
+.card-caption.health{
+    color: var(--tag-green);
+}
+
+.card-name{
+    font-size: 1em;
+    line-height: 152%;
+    letter-spacing: 0.08em;
+    color:var(--dark);
+    transition: color 0.3s ease;
+}
+
+.card-image{
+    width:19.375em;
+}
+
+.card{
+    max-width: 19.375em;
+    background-color: var(--content-background);
+    border-radius: 1.25em;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.card-text{
+    flex-basis: 7em;
+    background-color: var(--static-white);
+    border-radius: 1.25em;
+    padding: 1.25em;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.5em;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .card-name{
+    color:var(--primary);
+}
+
+.cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75em;
+}
+
 /* Footer section end */
 .footer{
     padding: 3.75em 0;
@@ -223,6 +283,15 @@ html{
     flex-direction: column;
     align-items: center;
     gap: 3.75em;
+}
+
+.paragraph{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 148%;
+    font-family: 'Montserrat', sans-serif;
+    color:var(--dark);
 }
 
 .footer-image{
@@ -306,6 +375,7 @@ html{
 .info-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.75em;
 }
 
