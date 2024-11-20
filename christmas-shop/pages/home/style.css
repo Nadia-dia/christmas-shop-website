@@ -308,8 +308,7 @@ html{
 }
 
 .arrow.active:hover path{
-    stroke:var(--primary)
-    
+    stroke:var(--primary);
 }
 
 .arrow.active:hover rect{
