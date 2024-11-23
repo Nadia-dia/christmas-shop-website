@@ -556,4 +556,47 @@ html{
     gap: 0.75em;
 }
 
+.burger-button{
+    display:none;
+}
 /* Footer section end */
+
+/*Responsive Start*/
+
+@media(max-width: 768px){
+    .header{
+        padding: 0.75em 0.5em;
+    }
+
+    .nav-menu{
+        display:none;
+    }
+
+    .burger-button{
+        display:block;
+        width: 3em;
+        position: relative;
+        border:none;
+        background-color: transparent;
+    }
+
+    .burger-line{
+        display:block;
+        position: absolute;
+        left: 0.75em;
+        width: 1.5em;
+        height: 0.08em;
+        background-color: var(--dark);
+    }
+
+    .burger-line:first-child{
+        top: 1.2em;
+        transform: translateY(-50%);
+    }
+
+    .burger-line:last-child{
+        bottom: 1.2em;
+        transform: translateY(50%);
+    }
+
+}
