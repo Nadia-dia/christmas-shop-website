@@ -256,7 +256,7 @@ html{
 
 .Slider{
     margin: 0 auto;
-    padding: 3.75em 0;
+    padding: 3.75em 5.125em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,7 +280,7 @@ html{
 }
 
 .slider-box{
-    max-width: 79.75em;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -290,7 +290,6 @@ html{
 .arrows-container{
     max-height: 3.5em;
     align-self: flex-end;
-    margin-right: 5.125em;
 }
 
 .arrows-container .arrow:first-child{
@@ -579,11 +578,20 @@ html{
 /*Responsive Start*/
 
 @media(max-width: 1180px){
-    .About{
+    .About,
+    .Slider{
         padding: 3.75em 0.5em;
     }
 }
 
+
+
+@media(max-width: 920px){
+    .slider-box{
+        width: calc(100vw - 0.5em);
+    }
+
+}
 @media(max-width: 768px){
     .header{
         padding: 0.75em 0.5em;
@@ -637,4 +645,14 @@ html{
         width: 100%;
     }
 
+    
+
 }
+
+/*
+.CTA,
+.footer,
+.BestGifts{
+    display: none;
+}
+    */
