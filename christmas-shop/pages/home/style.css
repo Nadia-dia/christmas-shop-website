@@ -127,6 +127,10 @@ html{
     color:var(--static-white);
 }
 
+.caption.new-year{
+    text-transform: none;
+}
+
 .h,
 .slider-text,
 .card-name{
@@ -198,8 +202,8 @@ html{
 }
 
 .text-container{
-    max-width: 26.625em;
-    margin-left: 3.75em;
+    max-width: 33.125em;
+    padding: 0 3.75em;
     display: flex;
     flex-direction: column;
     row-gap: 1.25em
@@ -233,6 +237,12 @@ html{
 .image{
     display: block;
     border-radius: 1.5em;
+}
+
+.About .image{
+    height: 33em;
+    width: 50%;
+    object-fit: cover;
 }
 
 /* About section end */
@@ -562,6 +572,12 @@ html{
 /* Footer section end */
 
 /*Responsive Start*/
+
+@media(max-width: 1180px){
+    .About{
+        padding: 3.75em 0.5em;
+    }
+}
 
 @media(max-width: 768px){
     .header{
