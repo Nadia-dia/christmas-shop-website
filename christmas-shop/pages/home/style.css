@@ -280,6 +280,7 @@ html{
 }
 
 .slider-box{
+    align-self: flex-start;
     width: 100%;
     display: flex;
     align-items: center;
@@ -473,8 +474,7 @@ html{
 
 /* Footer section end */
 .footer{
-    padding: 3.75em 0;
-    margin: 0 auto;
+    padding: 3.75em 5.125em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -506,6 +506,7 @@ html{
 }
 
 .contacts>.link{
+    height: 12.75em;
     width: 33%;
 }
 
@@ -576,6 +577,9 @@ html{
 }
 /* Footer section end */
 
+
+
+/*****************************************************************************************/
 /*Responsive Start*/
 
 @media(max-width: 1440px){
@@ -597,7 +601,19 @@ html{
     }
 }
 
+@media(max-width:1060px){
+    .footer{
+        padding: 3.75em 0.5em;
+    }
 
+    .contacts{
+        flex-wrap: wrap;
+    }
+
+    .contacts>.link{
+        width: 100%;
+    }
+}
 
 @media(max-width: 920px){
     .slider-box{
@@ -605,6 +621,7 @@ html{
     }
 
 }
+
 @media(max-width: 768px){
     .header{
         padding: 0.75em 0.5em;
@@ -660,14 +677,8 @@ html{
     .About .image{
         width: 100%;
     }
-
-
 }
 
 
-.CTA,
-.footer
-{
-    display: none;
-}
+
     
