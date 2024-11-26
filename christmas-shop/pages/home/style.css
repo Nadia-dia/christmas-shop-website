@@ -100,10 +100,12 @@ html{
     transition: background-color 0.3s ease-in, color 0.5s ease-in-out;
 }
 
-.menu-item .link:hover{
-    color:var(--primary);
-    background-color: var(--primary-10);
-    cursor: pointer;
+@media(hover:hover){
+    .menu-item .link:hover{
+        color:var(--primary);
+        background-color: var(--primary-10);
+        cursor: pointer;
+    }
 }
 
 .Hero>.background-container>.content-container{
@@ -125,6 +127,10 @@ html{
     font-family: 'Allura', sans-serif;
     text-transform:capitalize;
     color:var(--static-white);
+}
+
+.caption.new-year{
+    text-transform: none;
 }
 
 .h,
@@ -155,10 +161,12 @@ html{
     transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
 }
 
-.button:hover{
-    color: var(--dark);
-    background-color: var(--static-white);
-    cursor:pointer;
+@media(hover:hover){
+    .button:hover{
+        color: var(--dark);
+        background-color: var(--static-white);
+        cursor:pointer;
+    }
 }
 
 /* Background color&images*/
@@ -198,11 +206,15 @@ html{
 }
 
 .text-container{
-    max-width: 26.625em;
-    margin-left: 3.75em;
     display: flex;
     flex-direction: column;
     row-gap: 1.25em
+}
+
+.About .text-container{
+    width: 50%;
+    max-width: 33.125em;
+    padding: 3.75em;
 }
 
 .About .caption{
@@ -235,13 +247,20 @@ html{
     border-radius: 1.5em;
 }
 
+.About .image{
+    height: 33em;
+    width: 50%;
+    min-width: 22.75em;
+    object-fit: cover;
+}
+
 /* About section end */
 
 /* Slider section end */
 
 .Slider{
     margin: 0 auto;
-    padding: 3.75em 0;
+    padding: 3.75em 5.125em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,7 +284,8 @@ html{
 }
 
 .slider-box{
-    max-width: 79.75em;
+    align-self: flex-start;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -275,7 +295,6 @@ html{
 .arrows-container{
     max-height: 3.5em;
     align-self: flex-end;
-    margin-right: 5.125em;
 }
 
 .arrows-container .arrow:first-child{
@@ -292,22 +311,24 @@ html{
     transition: fill 0.5s, cursor 0.3s;
 }
 
-.arrow.active:hover svg{
-    cursor:pointer;
-    fill: var(--static-white);
-}
-
 .arrow path,
 .arrow:hover rect{
     transition: stroke 0.5s ease-in-out;
 }
 
-.arrow.active:hover path{
-    stroke:var(--primary);
-}
+@media(hover:hover){
+    .arrow.active:hover svg{
+        cursor:pointer;
+        fill: var(--static-white);
+    }
 
-.arrow.active:hover rect{
-    stroke:var(--static-white);
+    .arrow.active:hover path{
+        stroke:var(--primary);
+    }
+    
+    .arrow.active:hover rect{
+        stroke:var(--static-white);
+    }
 }
 
 .arrow.disabled rect{
@@ -349,7 +370,7 @@ html{
 }
 
 .card-text{
-    flex-grow: 1;
+    flex-basis: 7em;
     background-color: var(--static-white);
     border-radius: 1.25em;
     padding: 1.25em;
@@ -359,23 +380,26 @@ html{
     row-gap: 0.5em;
 }
 
-.card:hover {
-    cursor: pointer;
-}
-
-.card:hover .card-name{
-    color:var(--primary);
+@media(hover:hover){
+    .card:hover {
+        cursor: pointer;
+    }
+    
+    .card:hover .card-name{
+        color:var(--primary);
+    }
 }
 
 .cards-container{
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 0.75em;
 }
 
 .BestGifts{
-    margin: 0 auto;
-    padding: 3.75em 0;
+    padding: 3.75em 5.125em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -458,8 +482,7 @@ html{
 
 /* Footer section end */
 .footer{
-    padding: 3.75em 0;
-    margin: 0 auto;
+    padding: 3.75em 5.125em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -491,6 +514,7 @@ html{
 }
 
 .contacts>.link{
+    height: 12.75em;
     width: 33%;
 }
 
@@ -512,14 +536,16 @@ html{
     transition: color 0.3s ease-in;
 }
 
-.contact-card:hover .h,
-.contact-card:hover .link,
-.info-container>.caption:hover .school-link{
-    color:var(--primary);
-}
-
-.contact-card:hover{
-    cursor: pointer;
+@media(hover:hover){
+    .contact-card:hover .h,
+    .contact-card:hover .link,
+    .info-container>.caption:hover .school-link{
+        color:var(--primary);
+    }
+    
+    .contact-card:hover{
+        cursor: pointer;
+    }
 }
 
 .socials{
@@ -541,12 +567,14 @@ html{
     transition: stroke 0.5s ease-out;
 }
 
-.social-container:hover svg>path{
-    stroke:var(--primary);
-}
+@media(hover:hover){
+    .social-container:hover svg>path{
+        stroke:var(--primary);
+    }
 
-.social-container:hover{
-    cursor: pointer;
+    .social-container:hover{
+        cursor: pointer;
+    }
 }
 
 .info-container{
@@ -556,4 +584,113 @@ html{
     gap: 0.75em;
 }
 
+.burger-button{
+    display:none;
+}
 /* Footer section end */
+
+
+
+/*****************************************************************************************/
+/*Responsive Start*/
+
+@media(max-width: 1440px){
+    .BestGifts{
+        padding: 3.75em 4.25em;
+    }
+}
+
+@media(max-width: 1411px){
+    .cards-container{
+        max-width: 39.5em;
+    }
+}
+
+@media(max-width: 1180px){
+    .About,
+    .Slider{
+        padding: 3.75em 0.5em;
+    }
+}
+
+@media(max-width:1060px){
+    .footer{
+        padding: 3.75em 0.5em;
+    }
+
+    .contacts{
+        flex-wrap: wrap;
+    }
+
+    .contacts>.link{
+        width: 100%;
+    }
+}
+
+@media(max-width: 920px){
+    .slider-box{
+        width: calc(100vw - 0.5em);
+    }
+
+}
+
+@media(max-width: 768px){
+    .header{
+        padding: 0.75em 0.5em;
+    }
+
+    .nav-menu{
+        display:none;
+    }
+
+    .burger-button{
+        display:block;
+        width: 3em;
+        position: relative;
+        border:none;
+        background-color: transparent;
+    }
+
+    .burger-line{
+        display:block;
+        position: absolute;
+        left: 0.75em;
+        width: 1.5em;
+        height: 0.08em;
+        background-color: var(--dark);
+    }
+
+    .burger-line:first-child{
+        top: 1.2em;
+        transform: translateY(-50%);
+    }
+
+    .burger-line:last-child{
+        bottom: 1.2em;
+        transform: translateY(50%);
+    }
+
+    .BestGifts{
+        padding: 3.75em 0.5em;
+    }
+}
+
+@media(max-width: 704px){
+    .About>.content-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .About .text-container{
+        width: 100%;
+        padding: 3.75em 1.25em;
+    }
+
+    .About .image{
+        width: 100%;
+    }
+}
+
+
+
+    
