@@ -100,10 +100,12 @@ html{
     transition: background-color 0.3s ease-in, color 0.5s ease-in-out;
 }
 
-.menu-item .link:hover{
-    color:var(--primary);
-    background-color: var(--primary-10);
-    cursor: pointer;
+@media(hover:hover){
+    .menu-item .link:hover{
+        color:var(--primary);
+        background-color: var(--primary-10);
+        cursor: pointer;
+    }
 }
 
 .Hero>.background-container>.content-container{
@@ -159,10 +161,12 @@ html{
     transition: color 0.5s ease-in-out, background-color 0.3s ease-in;
 }
 
-.button:hover{
-    color: var(--dark);
-    background-color: var(--static-white);
-    cursor:pointer;
+@media(hover:hover){
+    .button:hover{
+        color: var(--dark);
+        background-color: var(--static-white);
+        cursor:pointer;
+    }
 }
 
 /* Background color&images*/
@@ -307,22 +311,24 @@ html{
     transition: fill 0.5s, cursor 0.3s;
 }
 
-.arrow.active:hover svg{
-    cursor:pointer;
-    fill: var(--static-white);
-}
-
 .arrow path,
 .arrow:hover rect{
     transition: stroke 0.5s ease-in-out;
 }
 
-.arrow.active:hover path{
-    stroke:var(--primary);
-}
+@media(hover:hover){
+    .arrow.active:hover svg{
+        cursor:pointer;
+        fill: var(--static-white);
+    }
 
-.arrow.active:hover rect{
-    stroke:var(--static-white);
+    .arrow.active:hover path{
+        stroke:var(--primary);
+    }
+    
+    .arrow.active:hover rect{
+        stroke:var(--static-white);
+    }
 }
 
 .arrow.disabled rect{
@@ -374,12 +380,14 @@ html{
     row-gap: 0.5em;
 }
 
-.card:hover {
-    cursor: pointer;
-}
-
-.card:hover .card-name{
-    color:var(--primary);
+@media(hover:hover){
+    .card:hover {
+        cursor: pointer;
+    }
+    
+    .card:hover .card-name{
+        color:var(--primary);
+    }
 }
 
 .cards-container{
@@ -528,14 +536,16 @@ html{
     transition: color 0.3s ease-in;
 }
 
-.contact-card:hover .h,
-.contact-card:hover .link,
-.info-container>.caption:hover .school-link{
-    color:var(--primary);
-}
-
-.contact-card:hover{
-    cursor: pointer;
+@media(hover:hover){
+    .contact-card:hover .h,
+    .contact-card:hover .link,
+    .info-container>.caption:hover .school-link{
+        color:var(--primary);
+    }
+    
+    .contact-card:hover{
+        cursor: pointer;
+    }
 }
 
 .socials{
@@ -557,12 +567,14 @@ html{
     transition: stroke 0.5s ease-out;
 }
 
-.social-container:hover svg>path{
-    stroke:var(--primary);
-}
+@media(hover:hover){
+    .social-container:hover svg>path{
+        stroke:var(--primary);
+    }
 
-.social-container:hover{
-    cursor: pointer;
+    .social-container:hover{
+        cursor: pointer;
+    }
 }
 
 .info-container{
