@@ -454,6 +454,10 @@ html{
         letter-spacing: 0.16em;
     }
 
+    .menu-item>.link{
+        padding: 0.5em 0.834em; 
+    }
+    
     .burger-button{
         display:block;
         width: 3em;
