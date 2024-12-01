@@ -2,15 +2,16 @@ let burgerButton = document.querySelector('.burger-button');
 let navMenu = document.querySelector('.nav-menu');
 let menuItemLink = document.querySelectorAll('.menu-item>.link');
 let burgerLines = document.querySelectorAll('.burger-line');
+
 // Burger button pressing
 burgerButton.addEventListener('click',toggleMenuSamePage);
+
 // Menu-item pressing
 // Menu-item on the other page
 menuItemLink[0].addEventListener('click', toggleMenuOtherPage);
 
 // Menu-item on the same page
-for (let i=1; i<menuItemLink.length-1; ++i){
-
+for (let i=1; i<menuItemLink.length; ++i){
     menuItemLink[i].addEventListener('click', toggleMenuSamePage);
     // First menu-item which goes to another page
 } 
