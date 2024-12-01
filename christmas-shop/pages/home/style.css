@@ -647,11 +647,13 @@ html{
         bottom: 0;
         left: 100vw;
         background-color: var(--static-white);
-        transition: left 0.6s ease-out;
+        opacity: 0;
+        transition: left 0.9s ease-out, opacity 0.4s ease-out;
     }
 
     .nav-menu.open{
         left: 0;
+        opacity: 1;
     }
 
     .menu-list{
@@ -659,6 +661,7 @@ html{
         row-gap: 0.5em;
         justify-content: center;
     }
+    
     .menu-item{
         font-size: 1.5em;
         line-height: 152%;
