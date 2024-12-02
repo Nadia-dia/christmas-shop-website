@@ -3,8 +3,6 @@ let burgerButton = document.querySelector('.burger-button');
 let navMenu = document.querySelector('.nav-menu');
 let menuItemLink = document.querySelectorAll('.menu-item>.link');
 let burgerLines = document.querySelectorAll('.burger-line');
-const a = ''; const b = 9; const c = null;
-console.log(!!(a || !b && !c));
 // Burger button pressing
 burgerButton.addEventListener('click',toggleMenuSamePage);
 
@@ -114,5 +112,35 @@ function setNumberOfClicks(){
 
 function calculateInterval(){
     interval = (document.querySelector('.slider-box').scrollWidth - document.querySelector('.slider-box').clientWidth ) / numberOfClicks;
+}
+
+// ******************************************** Timer *****************************************
+const newYear = new Date(Date.UTC(2025, 0, 1, 0, 0, 0, 0)); // Date in UTC+0
+let intervalID;
+document.addEventListener('DOMContentLoaded', ()=> intervalID = setInterval(updateTime, 1000));
+
+updateTime();
+
+function updateTime(){
+    const currentTime = new Date(Date.now());
+
+    const timeLeft = newYear - currentTime; // in milliseconds
+    
+    if(timeLeft <= 0){ // when it's already New Year
+        clearInterval(intervalID);
+        return;
+    }
+
+    // Calculating the numbers for timer
+    const days = Math.floor( timeLeft/1000/60/60/24 );
+    const hours = Math.floor( (timeLeft%(1000*60*60*24)) / 1000/60/60 );
+    const minutes = Math.floor( (timeLeft%(1000*60*60)) / 1000/60 );
+    const seconds = Math.floor( (timeLeft%(1000*60)) / 1000 );
+
+    // Setting HTML elements' content
+    document.querySelector('.day>.h2').textContent = days;
+    document.querySelector('.hour>.h2').textContent = hours;
+    document.querySelector('.minute>.h2').textContent = minutes;
+    document.querySelector('.second>.h2').textContent = seconds;
 }
 
