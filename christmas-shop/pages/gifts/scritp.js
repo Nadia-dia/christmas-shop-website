@@ -158,6 +158,22 @@ for(let item of tabItems){
             generateCards(cards.length, item.textContent);
         });
 
-}       
+}     
 
+//********************************************************* Scroll-to-Top ************************************************************
+let scrollButton = document.querySelector('.scroll-button');
+window.addEventListener('scroll', checkScrollHeight);
+scrollButton.addEventListener('click', goTop);
 
+function checkScrollHeight(){
+    if((document.body.scrollTop > 300 || document.documentElement.scrollTop>300) && document.documentElement.clientWidth <= 768){
+        scrollButton.style.display = "block";
+    } else {
+        scrollButton.style.display = "none";
+    }
+}
+
+function goTop(){
+    document.documentElement.scrollTop = 0; // for Chrome, Firefox, Opera, IE
+    document.body.scrollTop = 0; // for Safari
+}

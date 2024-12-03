@@ -279,6 +279,24 @@ html{
     gap: 0.75em;
 }
 
+.scroll-button{
+    display: none;
+    border: none;;
+    max-height: 4.2em;
+    background-color: transparent;
+    position:fixed;
+    bottom: 2em;
+    right: 2.25em;
+}
+
+.svg{
+    transition: fill 0.5s, cursor 0.3s;
+}
+
+.scroll-button path,
+.scroll-button rect{
+    transition: stroke 0.5s ease-in-out, stroke-opacity 0.2s ease-in-out;
+}
 /* Footer section end */
 .footer{
     padding: 3.75em 0;
