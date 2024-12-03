@@ -57,17 +57,50 @@ loadCards().then(()=>{
 });
 
 
-function generateCards(n){ // n is how many cards should be generated
+function generateCards(n, category){ // n is how many cards should be generated
+    console.log(n);
+    console.log(category);
     let usedIndexes = new Set();
     let cardsContainer = document.querySelector('.cards-container');
+
+    // establishing how many cards and which indexes the should have according to the chosen category 
+    let startIndex;
+    let endIndex;
+    let cardsForCategory = cards.length / 3;
+    switch(category){
+        case "For Work":
+            startIndex = 0;
+            endIndex = (startIndex + cardsForCategory) - 1;
+            n /= 3;
+            break;
+        case "For Health":
+            startIndex = cards.length / 3;
+            endIndex = (startIndex + cardsForCategory) - 1;
+            n /= 3;
+            break;
+        case "For Harmony":
+            startIndex = (cards.length / 3) * 2;
+            endIndex = (startIndex + cardsForCategory) - 1;
+            n /= 3;
+            break;
+        default:
+            startIndex = 0;
+            endIndex = cards.length - 1;
+            break;
+    }
+
     while(usedIndexes.size < n){
-        let randomIndex = Math.floor(Math.random()*cards.length);
-        if(usedIndexes.has(randomIndex)) continue;
+        let randomIndex;
+        do{
+            randomIndex = Math.floor(Math.random()*cards.length);
+        } while (usedIndexes.has(randomIndex) || randomIndex < startIndex || randomIndex > endIndex);
         usedIndexes.add(randomIndex);
         
         // Creating card-block
         let card = document.createElement('div');
         card.classList.add('card');
+        card.classList.add('show');
+        
 
         // Creating text-container for card
         let cardText = document.createElement('div');
@@ -108,5 +141,23 @@ function generateCards(n){ // n is how many cards should be generated
         card.append(cardImage);
         card.append(cardText);
         cardsContainer.append(card);
+        console.log(randomIndex);
     }
 }
+
+//********************************************************* Category switching ************************************************************
+let tabItems = document.querySelectorAll('.tab-item>.link');
+for(let item of tabItems){
+        item.addEventListener('click', ()=>{
+            tabItems.forEach((tab)=>tab.classList.remove('active'));
+            item.classList.add('active');        
+        });
+        item.addEventListener('click', ()=>{
+            const cardsContainer = document.querySelector('.cards-container');
+            cardsContainer.innerHTML ='';
+            generateCards(cards.length, item.textContent);
+        });
+
+}       
+
+
