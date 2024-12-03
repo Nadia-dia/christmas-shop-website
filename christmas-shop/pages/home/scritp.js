@@ -1,4 +1,4 @@
-// *********************************************** Burger-Menu ***********************************************8
+// *********************************************** Burger-Menu ***********************************************
 let burgerButton = document.querySelector('.burger-button');
 let navMenu = document.querySelector('.nav-menu');
 let menuItemLink = document.querySelectorAll('.menu-item>.link');
@@ -199,6 +199,7 @@ function generateCards(n){ // n is how many cards should be generated
 
         let cardImage = document.createElement('img');
         cardImage.src = url;
+        cardImage.alt = "christmas tree ball";
         cardImage.classList.add('image');
         cardImage.classList.add('card-image');
 
