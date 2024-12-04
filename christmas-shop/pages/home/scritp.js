@@ -228,7 +228,6 @@ function openModal(cardIndex){
     const layout = document.querySelector('.layout-container');
     layout.style.paddingRight = '17px';
     layout.style.maxWidth = '91.0625rem';
-    layout.style.backgroundColor = 'var(--primary)';
 
     const modal = document.querySelector('.modal');
     modal.style.display = "flex";
