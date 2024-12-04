@@ -7,6 +7,12 @@ let burgerLines = document.querySelectorAll('.burger-line');
 // Burger button pressing
 burgerButton.addEventListener('click',toggleMenuSamePage);
 
+// menu disappears when resize the window bigger than 768
+window.addEventListener('resize', () =>{
+    if(document.documentElement.clientWidth >= 768 && 
+        navMenu.classList.contains('open'))toggleMenuSamePage();
+});
+
 // Menu-item pressing
 // Menu-item on the same page
 menuItemLink[0].addEventListener('click', toggleMenuSamePage);
@@ -58,8 +64,6 @@ loadCards().then(()=>{
 
 
 function generateCards(n, category){ // n is how many cards should be generated
-    console.log(n);
-    console.log(category);
     let usedIndexes = new Set();
     let cardsContainer = document.querySelector('.cards-container');
 
@@ -143,7 +147,7 @@ function generateCards(n, category){ // n is how many cards should be generated
         console.log(randomIndex);
 
         // Add click event for modal
-        card.addEventListener('click', ()=>addModal(randomIndex));
+        card.addEventListener('click', ()=>openModal(randomIndex));
     }
 }
 
@@ -182,7 +186,15 @@ function goTop(){
 }
 
 //********************************************************* Modal ************************************************************
-function addModal(cardIndex){
+document.querySelector('.cross-button').addEventListener('click', closeModal);
+document.querySelector('.modal').addEventListener('click', closeModal);
+
+function openModal(cardIndex){
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '17px';
+    layout.style.maxWidth = '91.0625rem';
+    layout.style.backgroundColor = 'var(--primary)';
+
     const modal = document.querySelector('.modal');
     modal.style.display = "flex";
 
@@ -228,8 +240,9 @@ function addModal(cardIndex){
         points[i].textContent = pointsJSON[i]; 
 
         let snowflakes = document.querySelectorAll(`.powers>.power:nth-child(${i+1}) > .snowflakes > svg`);
+        
+        snowflakes.forEach(item=>item.classList.remove('inactive'));
         console.log(snowflakes);
-        snowflakes.forEach(item=>item.className = '');
         let pointsInNumber = parseInt(pointsJSON[i]);
         if(pointsInNumber <= 400){
             snowflakes[4].classList.add('inactive');
@@ -247,6 +260,15 @@ function addModal(cardIndex){
             snowflakes[0].classList.add('inactive');
         }
     }
+
+    document.body.style.overflow = 'hidden';
 }
 
-
+function closeModal(){
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
+    document.body.style.overflow = '';
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '';
+    layout.style.maxWidth = '90rem';
+}
