@@ -177,3 +177,9 @@ function goTop(){
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, Opera, IE
     document.body.scrollTop = 0; // for Safari
 }
+
+//********************************************************* Modal ************************************************************
+
+function addModal(index){
+
+}
