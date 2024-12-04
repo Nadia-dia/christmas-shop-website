@@ -45,6 +45,7 @@ html{
     box-sizing: border-box;
 }
 
+
 .layout-container{
     max-width: 90rem;
     width: 100%;
@@ -566,6 +567,14 @@ html{
     right: 1.2em;
     border:none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+@media (hover:hover) {
+    .cross-button:hover>.cross-line{
+        background-color: var(--primary);
+    }
+    
 }
 
 .cross-line{
@@ -576,7 +585,7 @@ html{
     left: 0.625em;
     margin: auto;
     background-color: var(--dark);
-    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, background-color 0.5s ease-out;
 }
 
 .cross-line:first-child{
@@ -607,6 +616,8 @@ html{
 
 .superpowers-container .h4{
     line-height: 1em;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
 }
 
 .power{
@@ -617,10 +628,15 @@ html{
 
 .power>.paragraph:first-child{
     flex-basis: 11.5em;
+    text-transform:capitalize;
 }
 
 .snowflakes{
     display: flex;
     align-items: center;
     column-gap: 0.5em;
+}
+
+.snowflakes>svg.inactive>g>path{
+    fill-opacity: 0.1;
 }
