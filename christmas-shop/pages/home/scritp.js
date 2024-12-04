@@ -230,7 +230,7 @@ function openModal(cardIndex){
     layout.style.maxWidth = '91.0625rem';
 
     const modal = document.querySelector('.modal');
-    modal.style.display = "flex";
+    modal.classList.add('open');
 
     const image = document.querySelector('.modal .image');
     let url;
@@ -300,7 +300,7 @@ function openModal(cardIndex){
 
 function closeModal(){
     const modal = document.querySelector('.modal');
-    modal.style.display = "none";
+    modal.classList.remove('open');
     document.body.style.overflow = '';
     const layout = document.querySelector('.layout-container');
     layout.style.paddingRight = '';
