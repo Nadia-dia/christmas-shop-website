@@ -7,6 +7,12 @@ let burgerLines = document.querySelectorAll('.burger-line');
 // Burger button pressing
 burgerButton.addEventListener('click',toggleMenuSamePage);
 
+// menu disappears when resize the window bigger than 768
+window.addEventListener('resize', () =>{
+    if(document.documentElement.clientWidth >= 768 && 
+        navMenu.classList.contains('open'))toggleMenuSamePage();
+});
+
 // Menu-item pressing
 // Menu-item on the same page
 menuItemLink[0].addEventListener('click', toggleMenuSamePage);
@@ -58,8 +64,6 @@ loadCards().then(()=>{
 
 
 function generateCards(n, category){ // n is how many cards should be generated
-    console.log(n);
-    console.log(category);
     let usedIndexes = new Set();
     let cardsContainer = document.querySelector('.cards-container');
 
@@ -100,7 +104,6 @@ function generateCards(n, category){ // n is how many cards should be generated
         let card = document.createElement('div');
         card.classList.add('card');
         card.classList.add('show');
-        
 
         // Creating text-container for card
         let cardText = document.createElement('div');
@@ -137,11 +140,14 @@ function generateCards(n, category){ // n is how many cards should be generated
         cardImage.classList.add('image');
         cardImage.classList.add('card-image');
 
-        // Adding card nodes to HTML
+        // Add card nodes to HTML
         card.append(cardImage);
         card.append(cardText);
         cardsContainer.append(card);
         console.log(randomIndex);
+
+        // Add click event for modal
+        card.addEventListener('click', ()=>openModal(randomIndex));
     }
 }
 
@@ -172,14 +178,97 @@ function checkScrollHeight(){
         scrollButton.style.display = "none";
     }
 }
-
+console.log('add Modal here');
 function goTop(){
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, Opera, IE
     document.body.scrollTop = 0; // for Safari
+    
 }
 
 //********************************************************* Modal ************************************************************
+document.querySelector('.cross-button').addEventListener('click', closeModal);
+document.querySelector('.modal').addEventListener('click', closeModal);
 
-function addModal(index){
+function openModal(cardIndex){
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '17px';
+    layout.style.maxWidth = '91.0625rem';
+    layout.style.backgroundColor = 'var(--primary)';
 
+    const modal = document.querySelector('.modal');
+    modal.style.display = "flex";
+
+    const image = document.querySelector('.modal .image');
+    let url;
+    switch(cards[cardIndex].category){
+        case "For Work":
+            url = "../../assets/images/gift-for-work.png";
+            break;
+        case "For Health":
+            url = "../../assets/images/gift-for-health.png";
+            break;
+        case "For Harmony":
+            url = "../../assets/images/gift-for-harmony.png";
+            break;
+    }
+    image.src = url;
+
+    const cardCaption = document.querySelector('.modal .card-caption');
+    cardCaption.textContent = cards[cardIndex].category;
+    cardCaption.className = '';
+    cardCaption.classList.add('card-caption');
+    cardCaption.classList.add(cards[cardIndex].category.slice(4).toLowerCase());
+
+    const cardName = document.querySelector('.modal .card-name');
+    cardName.textContent = cards[cardIndex].name;
+
+    const cardParagraph = document.querySelector('.modal .card-text .paragraph');
+    cardParagraph.textContent = cards[cardIndex].description;
+
+    //Names of powers
+    const powers = document.querySelectorAll('.power>.paragraph:first-child');
+    const powersJSON = Object.keys(cards[cardIndex].superpowers);
+    for(let i =0; i< powers.length; ++i){
+        powers[i].textContent = powersJSON[i];
+    }
+
+    //Points for each power
+    const points = document.querySelectorAll('.power>.paragraph:nth-child(2)');
+    const pointsJSON = Object.values(cards[cardIndex].superpowers);
+    
+    for(let i =0; i< powers.length; ++i){
+        points[i].textContent = pointsJSON[i]; 
+
+        let snowflakes = document.querySelectorAll(`.powers>.power:nth-child(${i+1}) > .snowflakes > svg`);
+        
+        snowflakes.forEach(item=>item.classList.remove('inactive'));
+        console.log(snowflakes);
+        let pointsInNumber = parseInt(pointsJSON[i]);
+        if(pointsInNumber <= 400){
+            snowflakes[4].classList.add('inactive');
+        }
+        if(pointsInNumber <= 300){
+            snowflakes[3].classList.add('inactive');
+        }
+        if(pointsInNumber <= 200){
+            snowflakes[2].classList.add('inactive');
+        }
+        if(pointsInNumber <= 100){
+            snowflakes[1].classList.add('inactive');
+        }
+        if(pointsInNumber < 100){
+            snowflakes[0].classList.add('inactive');
+        }
+    }
+
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
+    document.body.style.overflow = '';
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '';
+    layout.style.maxWidth = '90rem';
 }

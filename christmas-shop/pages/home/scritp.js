@@ -3,8 +3,15 @@ let burgerButton = document.querySelector('.burger-button');
 let navMenu = document.querySelector('.nav-menu');
 let menuItemLink = document.querySelectorAll('.menu-item>.link');
 let burgerLines = document.querySelectorAll('.burger-line');
+
 // Burger button pressing
 burgerButton.addEventListener('click',toggleMenuSamePage);
+
+// menu disappears when resize the window bigger than 768
+window.addEventListener('resize', () =>{
+    if(document.documentElement.clientWidth > 768 && 
+        navMenu.classList.contains('open'))toggleMenuSamePage();
+});
 
 // Menu-item pressing
 // Menu-item on the other page
@@ -207,7 +214,98 @@ function generateCards(n){ // n is how many cards should be generated
         card.append(cardImage);
         card.append(cardText);
         cardsContainer.append(card);
+
+        // Add click event for modal
+        card.addEventListener('click', ()=>openModal(randomIndex));
     }
+}
+
+//********************************************************* Modal ************************************************************
+document.querySelector('.cross-button').addEventListener('click', closeModal);
+document.querySelector('.modal').addEventListener('click', closeModal);
+
+function openModal(cardIndex){
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '17px';
+    layout.style.maxWidth = '91.0625rem';
+    layout.style.backgroundColor = 'var(--primary)';
+
+    const modal = document.querySelector('.modal');
+    modal.style.display = "flex";
+
+    const image = document.querySelector('.modal .image');
+    let url;
+    switch(cards[cardIndex].category){
+        case "For Work":
+            url = "../../assets/images/gift-for-work.png";
+            break;
+        case "For Health":
+            url = "../../assets/images/gift-for-health.png";
+            break;
+        case "For Harmony":
+            url = "../../assets/images/gift-for-harmony.png";
+            break;
+    }
+    image.src = url;
+
+    const cardCaption = document.querySelector('.modal .card-caption');
+    cardCaption.textContent = cards[cardIndex].category;
+    cardCaption.className = '';
+    cardCaption.classList.add('card-caption');
+    cardCaption.classList.add(cards[cardIndex].category.slice(4).toLowerCase());
+
+    const cardName = document.querySelector('.modal .card-name');
+    cardName.textContent = cards[cardIndex].name;
+
+    const cardParagraph = document.querySelector('.modal .card-text .paragraph');
+    cardParagraph.textContent = cards[cardIndex].description;
+
+    //Names of powers
+    const powers = document.querySelectorAll('.power>.paragraph:first-child');
+    const powersJSON = Object.keys(cards[cardIndex].superpowers);
+    for(let i =0; i< powers.length; ++i){
+        powers[i].textContent = powersJSON[i];
+    }
+
+    //Points for each power
+    const points = document.querySelectorAll('.power>.paragraph:nth-child(2)');
+    const pointsJSON = Object.values(cards[cardIndex].superpowers);
+    
+    for(let i =0; i< powers.length; ++i){
+        points[i].textContent = pointsJSON[i]; 
+
+        let snowflakes = document.querySelectorAll(`.powers>.power:nth-child(${i+1}) > .snowflakes > svg`);
+        
+        snowflakes.forEach(item=>item.classList.remove('inactive'));
+        console.log(snowflakes);
+        let pointsInNumber = parseInt(pointsJSON[i]);
+        if(pointsInNumber <= 400){
+            snowflakes[4].classList.add('inactive');
+        }
+        if(pointsInNumber <= 300){
+            snowflakes[3].classList.add('inactive');
+        }
+        if(pointsInNumber <= 200){
+            snowflakes[2].classList.add('inactive');
+        }
+        if(pointsInNumber <= 100){
+            snowflakes[1].classList.add('inactive');
+        }
+        if(pointsInNumber < 100){
+            snowflakes[0].classList.add('inactive');
+        }
+    }
+
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
+    document.body.style.overflow = '';
+    const layout = document.querySelector('.layout-container');
+    layout.style.paddingRight = '';
+    layout.style.maxWidth = '90rem';
 }
 
 
