@@ -538,6 +538,19 @@ html{
     background-color: rgba(0,0,0,0.4);
     display: none; /*flex*/
     align-items: center;
+    opacity:0;
+    transition-property: display opacity ;
+    transition-duration: 1s;
+    transition-behavior: allow-discrete;
+}
+
+.modal.open{
+    display:flex;
+    opacity: 1;
+
+    @starting-style{
+        opacity:0;
+    }
 }
 
 .modal-content{
