@@ -15,11 +15,14 @@ window.addEventListener('resize', () =>{
 
 // Menu-item pressing
 // Menu-item on the same page
-menuItemLink[0].addEventListener('click', toggleMenuSamePage);
-menuItemLink[3].addEventListener('click', toggleMenuSamePage);
+if(document.documentElement.clientWidth <= 768){
+    menuItemLink[0].addEventListener('click', toggleMenuSamePage);
+    menuItemLink[3].addEventListener('click', toggleMenuSamePage);
+}
 
 // Menu-item on the other page
 for (let i=2; i<menuItemLink.length-1; ++i){
+    if(document.documentElement.clientWidth <= 768)
     menuItemLink[i].addEventListener('click', toggleMenuOtherPage);
     // Second&third menu-item which goes to another page
 } 
@@ -172,13 +175,17 @@ window.addEventListener('scroll', checkScrollHeight);
 scrollButton.addEventListener('click', goTop);
 
 function checkScrollHeight(){
-    if((document.body.scrollTop > 300 || document.documentElement.scrollTop>300) && document.documentElement.clientWidth <= 768){
+    console.log(document.body.scrollTop);
+    console.log(document.documentElement.scrollTop);
+    
+    if((document.body.scrollTop >= 300 || document.documentElement.scrollTop >= 300) && document.documentElement.clientWidth <= 768){
         scrollButton.style.display = "block";
+        
     } else {
         scrollButton.style.display = "none";
     }
 }
-console.log('add Modal here');
+
 function goTop(){
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, Opera, IE
     document.body.scrollTop = 0; // for Safari
