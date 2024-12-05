@@ -14,15 +14,23 @@ window.addEventListener('resize', () =>{
 });
 
 // Menu-item pressing
-// Menu-item on the other page
-if(document.documentElement.clientWidth <= 768) menuItemLink[0].addEventListener('click', toggleMenuOtherPage);
-
 // Menu-item on the same page
-for (let i=1; i<menuItemLink.length; ++i){
-    if(document.documentElement.clientWidth <= 768) 
-    menuItemLink[i].addEventListener('click', toggleMenuSamePage);
-    // First menu-item which goes to another page
-} 
+menuItemLink[1].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuSamePage();
+});
+menuItemLink[2].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuSamePage();
+});
+
+menuItemLink[3].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuSamePage();
+});
+
+// Menu-item pressing
+// Menu-item on the other page
+menuItemLink[0].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuOtherPage();
+});
 
 function toggleMenuSamePage(){
     burgerButton.classList.toggle('active');

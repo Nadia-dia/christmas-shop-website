@@ -15,17 +15,21 @@ window.addEventListener('resize', () =>{
 
 // Menu-item pressing
 // Menu-item on the same page
-if(document.documentElement.clientWidth <= 768){
-    menuItemLink[0].addEventListener('click', toggleMenuSamePage);
-    menuItemLink[3].addEventListener('click', toggleMenuSamePage);
-}
+menuItemLink[0].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuSamePage();
+});
+menuItemLink[3].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuSamePage();
+});
 
+// Second&third menu-item which goes to another page
 // Menu-item on the other page
-for (let i=2; i<menuItemLink.length-1; ++i){
-    if(document.documentElement.clientWidth <= 768)
-    menuItemLink[i].addEventListener('click', toggleMenuOtherPage);
-    // Second&third menu-item which goes to another page
-} 
+menuItemLink[1].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuOtherPage();
+});
+menuItemLink[2].addEventListener('click', ()=>{
+    if(document.documentElement.clientWidth <= 768)toggleMenuOtherPage();
+});
 
 function toggleMenuSamePage(){
     burgerButton.classList.toggle('active');
