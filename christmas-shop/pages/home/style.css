@@ -777,8 +777,8 @@ html{
     width: 3em;
     height: 3em;
     position: absolute;
-    top: 0.8em;
-    right: 1.2em;
+    top: 0.9em;
+    right: 0.9em;
     border:none;
     background-color: transparent;
     cursor: pointer;
@@ -796,7 +796,7 @@ html{
     position: absolute;
     width: 2.2em;
     height: 0.15em;
-    left: 0.625em;
+    left: 0.3em;
     margin: auto;
     background-color: var(--dark);
     transition: transform 0.5s ease-out,  background-color 0.5s ease-out;
