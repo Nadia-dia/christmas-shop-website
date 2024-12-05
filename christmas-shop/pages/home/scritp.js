@@ -15,10 +15,11 @@ window.addEventListener('resize', () =>{
 
 // Menu-item pressing
 // Menu-item on the other page
-menuItemLink[0].addEventListener('click', toggleMenuOtherPage);
+if(document.documentElement.clientWidth <= 768) menuItemLink[0].addEventListener('click', toggleMenuOtherPage);
 
 // Menu-item on the same page
 for (let i=1; i<menuItemLink.length; ++i){
+    if(document.documentElement.clientWidth <= 768) 
     menuItemLink[i].addEventListener('click', toggleMenuSamePage);
     // First menu-item which goes to another page
 } 
