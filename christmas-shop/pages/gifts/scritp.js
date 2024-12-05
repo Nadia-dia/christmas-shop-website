@@ -9,7 +9,7 @@ burgerButton.addEventListener('click',toggleMenuSamePage);
 
 // menu disappears when resize the window bigger than 768
 window.addEventListener('resize', () =>{
-    if(document.documentElement.clientWidth >= 768 && 
+    if(document.documentElement.clientWidth > 768 && 
         navMenu.classList.contains('open'))toggleMenuSamePage();
 });
 
@@ -194,13 +194,19 @@ function goTop(){
 
 //********************************************************* Modal ************************************************************
 document.querySelector('.cross-button').addEventListener('click', closeModal);
+document.querySelector('.modal-content').addEventListener('click',(event)=>{
+    event.stopPropagation();
+})
 document.querySelector('.modal').addEventListener('click', closeModal);
 
 function openModal(cardIndex){
-    const layout = document.querySelector('.layout-container');
-    layout.style.paddingRight = '17px';
-    layout.style.maxWidth = '91.0625rem';
-
+    /*
+    if(document.documentElement.clientWidth > 768){
+        const layout = document.querySelector('.layout-container');
+        layout.style.paddingRight = '17px';
+        layout.style.maxWidth = '91.0625rem';
+    }*/
+    
     const modal = document.querySelector('.modal');
     modal.classList.add('open');
 
@@ -274,7 +280,10 @@ function closeModal(){
     const modal = document.querySelector('.modal');
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    const layout = document.querySelector('.layout-container');
-    layout.style.paddingRight = '';
-    layout.style.maxWidth = '90rem';
+    /*
+    if(document.documentElement.clientWidth > 768){
+        const layout = document.querySelector('.layout-container');
+        layout.style.paddingRight = '';
+        layout.style.maxWidth = '90rem';
+    }*/
 }
